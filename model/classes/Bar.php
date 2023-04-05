@@ -73,28 +73,40 @@ class Bar {
     // méthode permettant de réaliser un cocktail selon la recette entrée en argument et le nombre de verres demandés
     // retourne le cocktail OU FAUX si l'opération est un échec
     public function faireCocktail(Recette $recette, int $nbVerres, Shaker $shaker) : bool {
+
         // vérifier qu'on sait faire la recette
         if ($this->verifRecette($recette->getNom())) {
             // déterminer les ingrédients de la recette
             $ingredients = $recette->getIngredients() /* Tableau des bouteilles de la recette */;
+
             // vérifier que toutes les bouteilles nécessaires sont dans le bar
             foreach($ingredients as $bouteille => $qte) {
                 // s'il nous manque une bouteille
                 if(!$this->chercherBouteille($bouteille)){
+                    // on vide ce qu'on a déjà mis dedans
+                    $shaker->verser();
                     return false;
                 }
                 // sinon, on vérifie qu'elles contiennent suffisamment de liquide pour la recette
                 // ET le cas échéant, on verse son contenu
                 if (!$this->prendreBouteille($bouteille)->verser($nbVerres*$qte)) {
+                    // on vide ce qu'on a déjà mis dedans
+                    $shaker->verser();
                     return false;
                 }
-                // et on les ajoute dans le shaker
-                $shaker->ajouterIngredient($bouteille, $qte*$nbVerres);
-            }
+                // et on les ajoute dans le shaker (s'il peut contenir le liquide)
+                if(!$shaker->ajouterIngredient($bouteille, $qte*$nbVerres)) {
+                    // on vide ce qu'on a déjà mis dedans
+                    $shaker->verser();
+                    return false;
+                }
+            } // fin foreach
+
             // effectuer le cocktail càd secouer le shaker
             $shaker->secouer();
+            $shaker->verser();
             return true;
-        }
+        } // fin si
         return false;
     } // fin faireCocktail
 

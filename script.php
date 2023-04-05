@@ -59,24 +59,28 @@ else {
 }
 
 // faire des cocktails
+$shaker1 = new Shaker();
 echo "<h3>On fait des cocktails</h3>";
 echo "<h4>522 verres de Mojito</h4>";
-if ($beBar->faireCocktail($listeRecettes[0], 522, new Shaker())) {
+if ($beBar->faireCocktail($listeRecettes[0], 522, $shaker1)) {
     echo "C'est fait !<br>";
 }
 else {
     echo "Nous n'avons pas suffisamment d'ingrédients<br>";
 }
 echo "<h4>3 verres de Mimosa</h4>";
-if ($beBar->faireCocktail($listeRecettes[4], 1, new Shaker())) {
+if ($beBar->faireCocktail($listeRecettes[4], 1, $shaker1)) {
     echo "C'est fait !<br>";
 }
+else {
+    echo "Oupsie<br>";
+}
 echo "<h4>1 verre de White Russian</h4>";
-if (!$beBar->faireCocktail($listeRecettes[1], 1, new Shaker())) {
+if (!$beBar->faireCocktail($listeRecettes[1], 1, $shaker1)) {
     echo "Nous n'avons pas les ingrédients<br>";
 }
 echo "<h4>1 verre de Bloody Mary</h4>";
-if (!$beBar->faireCocktail(new Recette('Bloody Mary', []), 1, new Shaker())) {
+if (!$beBar->faireCocktail(new Recette('Bloody Mary', []), 1, $shaker1)) {
     echo "Nous ne faisons pas ça ici<br></p><hr>";
 }
 
@@ -88,8 +92,4 @@ if($beBar->jeterBouteille("Jus d'oranges")) {
 // preuve qu'il n'y a plus le jus d'orange
 // var_dump($beBar->afficherStock());
 
-
-/* Tests des bouteilles */
-echo "<h2>Test des bouteilles</h2>";
-echo "Oh la flemme";
-// echo "<h3>Recettes du bar</h3>";
+var_dump($shaker1);

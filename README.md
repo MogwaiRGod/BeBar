@@ -69,8 +69,9 @@ classDiagram
         int etat
         getIngredients() : array
         ajouterIngredient(ingredient, int qte) : bool
-        verserShaker() : void
+        verser() : void
         laverShaker() : void
         secouer() : bool
+        estNonVide() : bool
     }
 ```

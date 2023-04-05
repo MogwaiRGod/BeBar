@@ -3,13 +3,14 @@
 class Shaker {
     private $contenance /* en cL */;
     private $contenanceRestante;
-    private $ingredients /* Bouteille : tableau */;
+    private $ingredients;
     private $etat /* int : de 0 à 10, indique l'état de saleté ; 0 => propre */;
 
     public function __construct($ctn = 30 /* selon Luca : qté de base */) {
         $this->contenance = $ctn;
         $this->contenanceRestante = $ctn;
         $this->etat = 0;
+        $this->ingredients = [];
     }
 
     /* GET */
@@ -22,7 +23,7 @@ class Shaker {
 
     // méthode permettant d'ajouter un ingrédient dans le shaker
     public function ajouterIngredient($ingredient, $qte) : bool {
-        if ($contenanceRestante < $qte) {
+        if ($this->contenanceRestante < $qte) {
             return false;
         }
         array_push($this->ingredients, $ingredient);
@@ -34,7 +35,7 @@ class Shaker {
     }
 
     // méthode permettant de verser le contenu du shaker (dans des verres)
-    public function verserShaker() : void {
+    public function verser() : void {
         $this->ingredients = [];
         // reset de la contenance disponible
         $this->contenanceRestante = $this->contenance;
@@ -49,5 +50,9 @@ class Shaker {
     public function secouer() : bool {
         echo "Ggllglglgllgll<br>";
         return true;
+    }
+
+    public function estNonVide() : bool {
+        $this->contenanceRestante != $this->contenance;
     }
 }
