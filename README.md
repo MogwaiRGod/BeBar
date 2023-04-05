@@ -26,9 +26,7 @@ graph TD;
     D(script.php)
 ```
 
-## Classes
-
-### Bouteille
+## Model
 
 ```mermaid
 classDiagram
@@ -76,8 +74,3 @@ classDiagram
         secouer() : bool
     }
 ```
-
-# Fonctionnement
-> Script PHP d'application de POO et des principes du MVC
-* Le bar propose des recettes de cocktail et contient des bouteilles
-* Le shaker permet d'effectuer des cocktails
