@@ -15,6 +15,14 @@ class Bar {
         $this->bouteilles = $btls;
     }
 
+    /* GET */
+
+    public function afficherCarte() {
+        return $this->recettes;
+    }
+
+    /* LOGIQUE METIER */
+
     // méthode permettant d'ajouter une bouteille à la liste
     public function ajouterBouteille($btl) {
         array_push($this->bouteilles, ($btl));
@@ -41,9 +49,12 @@ class Bar {
     // méthode permettant de chercher une bouteille selon le nom entré en argument dans le bar
     // retourne un booléen
     public function chercherBouteille($nom) {
-        // si on a trouvé une bouteille
-        if (array_search($nom, $this->bouteilles) !== FALSE) {
-            return true;
+        foreach($this->bouteilles as $bouteille) {
+            // si on a trouvé une bouteille
+            if($bouteille->getNom() == $nom) {
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -53,7 +64,7 @@ class Bar {
     public function faireCocktail(Recette $recette, int $nbVerres, Shaker $shaker) {
         // vérifier l'existence de la recette
         if ($this->verifRecette($recette->getNom())) {
-            // réunir les ingrédients (Bouteille dans $bouteilles)
+            // réunir les ingrédients
             $ingredients = [];
             // vérifier que toutes les bouteilles nécessaires sont dans le bar
                 // vérifier qu'elles contiennent suffisamment de liquide pour la recette
