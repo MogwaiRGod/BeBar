@@ -36,6 +36,7 @@ class Shaker {
 
     // méthode permettant de verser le contenu du shaker (dans des verres)
     public function verser() : void {
+        // reset du contenu
         $this->ingredients = [];
         // reset de la contenance disponible
         $this->contenanceRestante = $this->contenance;
@@ -53,6 +54,6 @@ class Shaker {
     }
 
     public function estNonVide() : bool {
-        $this->contenanceRestante != $this->contenance;
+        return $this->contenanceRestante != $this->contenance;
     }
 }
