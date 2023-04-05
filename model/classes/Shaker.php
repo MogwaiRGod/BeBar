@@ -47,6 +47,7 @@ class Shaker {
 
     // méthode permettant de secouer le shaker afin d'effectuer le cocktail -> booléen
     public function secouer() : bool {
+        echo "Ggllglglgllgll<br>";
         return true;
     }
 }

@@ -27,6 +27,7 @@ class Bouteille {
         if ($this->quantiteRestante < $qte) {
             return false;
         }
+        // màj de la quantité dans la bouteille
         $this->quantiteRestante -= $qte;
         return true;
     }

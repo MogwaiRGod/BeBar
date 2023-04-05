@@ -80,14 +80,15 @@ class Bar {
                     return false;
                 }
                 // sinon, on vérifie qu'elles contiennent suffisamment de liquide pour la recette
-                if ($this->prendreBouteille($bouteille)->getQuantite() < $nbVerres*$qte) {
+                // ET le cas échéant, on verse son contenu
+                if (!$this->prendreBouteille($bouteille)->verser($nbVerres*$qte)) {
                     return false;
                 }
                 // et on les ajoute dans le shaker
                 $shaker->ajouterIngredient($bouteille, $qte*$nbVerres);
-                // effectuer le cocktail càd secouer le shaker
-                $shaker->secouer();
             }
+            // effectuer le cocktail càd secouer le shaker
+            $shaker->secouer();
             return true;
         }
         return false;
