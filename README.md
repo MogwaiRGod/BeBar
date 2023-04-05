@@ -2,7 +2,7 @@
 > Programme de modélisation d'un Bar (en POO)
 
 ## Auteurs
-Diane & MTP6
+Diane (MogwaiRGod) & MTP6
 
 ## Technologies
 
