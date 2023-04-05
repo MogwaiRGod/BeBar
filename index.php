@@ -11,11 +11,12 @@
 
   <body>
     <div id="container">
-<pre>
+      <pre>
+        <h1>BeBar</h1>
 <?php
 include 'script.php';
 ?>
-</pre>
+      </pre>
     </div>
   </body>
 </html>

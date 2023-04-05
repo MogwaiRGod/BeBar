@@ -12,7 +12,6 @@ include 'model/liste_bouteilles.php';
 /* SCRIPT */
 
 /* Tests du bar */
-
 // instanciation d'un bar
 $beBar = new Bar(
     "BeBar",
@@ -88,3 +87,9 @@ if($beBar->jeterBouteille("Jus d'oranges")) {
 }
 // preuve qu'il n'y a plus le jus d'orange
 // var_dump($beBar->afficherStock());
+
+
+/* Tests des bouteilles */
+echo "<h2>Test des bouteilles</h2>";
+echo "Oh la flemme";
+// echo "<h3>Recettes du bar</h3>";

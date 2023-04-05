@@ -26,6 +26,56 @@ graph TD;
     D(script.php)
 ```
 
+## Classes
+
+### Bouteille
+
+```mermaid
+classDiagram
+    Bouteille --|> Recette
+    Bar --|> Bouteille
+    Bar --|> Recette
+    class Bar {
+        String nom
+        associative array recettes
+        array bouteilles
+        afficherCarte() : array
+        afficherStock() : array
+        ajouterBouteille(Bouteille btl) : void
+        jeterBouteille(nom) : bool
+        chercherBouteille(String nom) : bool
+        prendreBouteille(nom) : Bouteille
+        faireCocktail(Recette recette, int nbVerres, Shaker shaker) : bool
+        verifRecette(nomRecette) : bool
+        indexBouteille(String nom) : int
+    }
+    class Bouteille {
+        String nom
+        int quantiteRestante
+        getNom() : String
+        getQuantite() : int
+        verser(int qte) : bool
+    }
+    class Recette {
+        String nom
+        array ingredients
+        getNom() : String
+        getIngredients() : array
+        verifShaker(Shaker shkr) : bool
+    }
+    class Shaker {
+        float contenance
+        float contenanceRestante
+        array ingredients
+        int etat
+        getIngredients() : array
+        ajouterIngredient(ingredient, int qte) : bool
+        verserShaker() : void
+        laverShaker() : void
+        secouer() : bool
+    }
+```
+
 # Fonctionnement
 > Script PHP d'application de POO et des principes du MVC
 * Le bar propose des recettes de cocktail et contient des bouteilles
