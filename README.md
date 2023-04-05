@@ -35,6 +35,7 @@ classDiagram
     Bouteille --|> Recette
     Bar --|> Bouteille
     Bar --|> Recette
+    Bar --|> Shaker
     class Bar {
         String nom
         associative array recettes
