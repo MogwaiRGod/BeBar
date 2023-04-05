@@ -70,14 +70,14 @@ else {
 }
 echo "<h4>3 verres de Mimosa</h4>";
 if ($beBar->faireCocktail($listeRecettes[4], 1, $shaker1)) {
-    echo "C'est fait !<br>";
+    echo "<p>C'est fait !<br>";
 }
 else {
-    echo "Oupsie<br>";
+    echo "Oupsie</p><br>";
 }
 echo "<h4>1 verre de White Russian</h4>";
 if (!$beBar->faireCocktail($listeRecettes[1], 1, $shaker1)) {
-    echo "Nous n'avons pas les ingrédients<br>";
+    echo "<p>Nous n'avons pas les ingrédients<br>";
 }
 echo "<h4>1 verre de Bloody Mary</h4>";
 if (!$beBar->faireCocktail(new Recette('Bloody Mary', []), 1, $shaker1)) {
