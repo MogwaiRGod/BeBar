@@ -16,6 +16,7 @@ Diane & MTP6
 ```mermaid
 graph TD;
     A[model]--> I(liste_recettes.php)
+    A[model]--> J(liste_bouteilles.php)
     A --> B[classes]
     B --> E(Bar.php)
     B --> F(Bouteille.php)
