@@ -1,9 +1,9 @@
 <?php
 
 class Bar {
-    private $bouteilles /* Bouteille : tableau */;
-    private $recettes /* Recette : tableau ; liste de recettes que le/la barmaid sait faire */;
     private $nom;
+    private $recettes /* Recette : tableau ; liste de recettes que le/la barmaid sait faire */;
+    private $bouteilles /* Bouteille : tableau */;
 
     public function __construct(
             $nm, 

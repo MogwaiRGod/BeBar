@@ -11,10 +11,11 @@
 
   <body>
     <div id="container">
+<pre>
 <?php
-include 'model/classes.php';
 include 'script.php';
 ?>
+</pre>
     </div>
   </body>
 </html>

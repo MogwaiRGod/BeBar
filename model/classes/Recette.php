@@ -2,9 +2,9 @@
 
 class Recette {
     private $nom;
-    private $ingredients = [] /* Bouteille */;
+    private $ingredients = [] /* tableau associatif ingrédient => quantité */;
 
-    public function __construct($nm, $ing /* tableau */) {
+    public function __construct($nm, $ing) {
         $this->nom = $nm;
         $this->ingredients = $ing;
     }
