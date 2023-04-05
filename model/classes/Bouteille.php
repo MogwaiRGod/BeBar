@@ -15,6 +15,10 @@ class Bouteille {
         return $this->nom;
     }
 
+    public function getQuantite() {
+        return $this->quantiteRestante;
+    }
+
     /* LOGIQUE METIER */
 
     // méthode permettant de verser une quantité entrée en argument de liquide

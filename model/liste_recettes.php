@@ -1,7 +1,7 @@
 <?php
 
 $listeRecettes = [
-    $mojito = new Recette(
+    new Recette(
         'Mojito',
         [
             'Rhum' => 10,
@@ -12,7 +12,7 @@ $listeRecettes = [
         ]
     ),
     
-    $whiteRussian = new Recette(
+    new Recette(
         'White Russian',
         [
             'Vodka' => 4,
@@ -22,7 +22,7 @@ $listeRecettes = [
         ]
     ),
     
-    $cosmo = new Recette(
+    new Recette(
         'Cosmopolitain',
         [
             'Vodka' => 4,
@@ -32,7 +32,7 @@ $listeRecettes = [
         ]
     ),
     
-    $ginFizz = new Recette(
+    new Recette(
         'Gin Fizz',
         [
             'Gin' => 6,
@@ -42,7 +42,7 @@ $listeRecettes = [
         ]
     ),
     
-    $mimosa = new Recette(
+    new Recette(
         'Mimosa',
         [
             'Champagne' => 4,

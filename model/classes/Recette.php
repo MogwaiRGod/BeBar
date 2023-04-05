@@ -15,6 +15,10 @@ class Recette {
         return $this->nom;
     }
 
+    public function getIngredients() {
+        return $this->ingredients;
+    }
+
     /* LOGIQUE METIER */
 
     // méthode permettant de vérifier que le contenu du shaker entré en argument correspond à la recette

@@ -23,21 +23,26 @@ $beBar = new Bar(
 // var_dump($BeBar);
 echo "<h2>Test des fonctionnalités du bar</h2>";
 echo "<h3>Recettes du bar</h3>";
+
+// chercher des recettes
 // var_dump($beBar->afficherCarte());
-if ($beBar->verifRecette("Mojito")){
-    echo "<p>Mojito est disponible<br>";
+$test = "White Russian";
+// $beBar->verifRecette($test);
+if ($beBar->verifRecette($test)){
+    echo "<p>" . $test . " est disponible<br>";
 }
 else {
-    echo "Pas de mojito ici";
+    echo "Pas de " . $test . " ici<br>";
 }
-
-if ($beBar->verifRecette("Bloody Mary")){
-    echo "Bloody Mary est disponible";
+$test = "Bloody Mary";
+if ($beBar->verifRecette($test)){
+    echo "<p>" . $test . " est disponible<br>";
 }
 else {
-    echo "Pas de Bloody Mary ici<br><hr>";
+    echo "Pas de " . $test . " ici<br><hr>";
 }
 
+// chercher des bouteilles
 echo "<h3>Bouteilles du bar</h3>";
 
 if ($beBar->chercherBouteille("Vodka")){
@@ -51,5 +56,27 @@ if ($beBar->chercherBouteille("Whisky")){
     echo "Whisky est disponible";
 }
 else {
-    echo "Pas de Whisky<br><hr>";
+    echo "Pas de Whisky<p><hr>";
+}
+
+// faire des cocktails
+echo "<h3>On fait des cocktails</h3>";
+echo "<h4>522 verres de Mojito</h4>";
+if ($beBar->faireCocktail($listeRecettes[0], 522, new Shaker())) {
+    echo "C'est fait !<br>";
+}
+else {
+    echo "Nous n'avons pas suffisamment d'ingrédients<br>";
+}
+echo "<h4>3 verres de Mimosa</h4>";
+if ($beBar->faireCocktail($listeRecettes[4], 1, new Shaker())) {
+    echo "C'est fait !<br>";
+}
+echo "<h4>1 verre de White Russian</h4>";
+if (!$beBar->faireCocktail($listeRecettes[1], 1, new Shaker())) {
+    echo "Nous n'avons pas les ingrédients<br>";
+}
+echo "<h4>1 verre de Bloody Mary</h4>";
+if (!$beBar->faireCocktail(new Recette('Bloody Mary', []), 1, new Shaker())) {
+    echo "Nous ne faisons pas ça ici<br><hr>";
 }

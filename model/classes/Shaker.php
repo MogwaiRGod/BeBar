@@ -20,7 +20,7 @@ class Shaker {
 
     /* LOGIQUE METIER */
 
-    // méthode permettant d'ajouter un ingrédient dans le shaker (liste d'ingredients)
+    // méthode permettant d'ajouter un ingrédient dans le shaker
     public function ajouterIngredient($ingredient, $qte) : bool {
         if ($contenanceRestante < $qte) {
             return false;
@@ -33,8 +33,8 @@ class Shaker {
         return true;
     }
 
-    // méthode permettant de vider le shaker
-    public function viderShaker() : void {
+    // méthode permettant de verser le contenu du shaker (dans des verres)
+    public function verserShaker() : void {
         $this->ingredients = [];
         // reset de la contenance disponible
         $this->contenanceRestante = $this->contenance;
