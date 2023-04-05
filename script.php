@@ -78,5 +78,13 @@ if (!$beBar->faireCocktail($listeRecettes[1], 1, new Shaker())) {
 }
 echo "<h4>1 verre de Bloody Mary</h4>";
 if (!$beBar->faireCocktail(new Recette('Bloody Mary', []), 1, new Shaker())) {
-    echo "Nous ne faisons pas ça ici<br><hr>";
+    echo "Nous ne faisons pas ça ici<br></p><hr>";
 }
+
+// jeter une bouteille
+echo "<h3>On jette le jus d'orange (périmé)</h3>";
+if($beBar->jeterBouteille("Jus d'oranges")) {
+    echo "<p>A pu de jus d'orange</p>";
+}
+// preuve qu'il n'y a plus le jus d'orange
+// var_dump($beBar->afficherStock());

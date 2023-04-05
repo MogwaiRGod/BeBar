@@ -21,6 +21,10 @@ class Bar {
         return $this->recettes;
     }
 
+    public function afficherStock() {
+        return $this->bouteilles;
+    }
+
     /* LOGIQUE METIER */
 
     // méthode permettant d'ajouter une bouteille à la liste
@@ -28,16 +32,16 @@ class Bar {
         array_push($this->bouteilles, ($btl));
     } // fin ajouterBouteill
 
-    // méthode permettant de supprimer une bouteille de la liste
-    public function jeterBouteille(Bouteille $btl) : bool {
+    // méthode permettant de supprimer une bouteille de la liste selon un nom entré en argument
+    public function jeterBouteille($nom) : bool {
         // on vérifie que la bouteille demandée existe dans le bar (= la liste)
-        if($this->chercherBouteille($btl->getNom())) {
+        if($this->chercherBouteille($nom)) {
             // le cas échéant, on la supprime
             /* unset : supprime l'item */
             unset(
                 $this->bouteilles[
                     /* on cherche l'index de la bouteille correspondante */
-                    array_search($btl->getNom(), $this->bouteilles)
+                    $this->indexBouteille($nom)
                 ]
             );
             return true;
@@ -106,4 +110,13 @@ class Bar {
         return false;
     } // verifRecette
 
+    // méthode retournant l'index dans le tableau $bouteilles de la bouteille dont le nom est entré en argument
+    private function indexBouteille(String $nom) : int {
+        for($i=0; $i<count($this->bouteilles); $i++) {	
+            // quand on a trouvé une bouteille
+            if($this->bouteilles[$i]->getNom() == $nom) {
+                return $i;
+            }
+        }
+    }
 }
