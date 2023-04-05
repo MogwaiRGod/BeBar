@@ -21,8 +21,7 @@ class Shaker {
     /* LOGIQUE METIER */
 
     // méthode permettant d'ajouter un ingrédient dans le shaker (liste d'ingredients)
-    // selon la quantité -> booléen selon l'issue de l'opération
-    public function ajouterIngredient($ingredient, $qte) {
+    public function ajouterIngredient($ingredient, $qte) : bool {
         if ($contenanceRestante < $qte) {
             return false;
         }
@@ -35,19 +34,19 @@ class Shaker {
     }
 
     // méthode permettant de vider le shaker
-    public function viderShaker() {
+    public function viderShaker() : void {
         $this->ingredients = [];
         // reset de la contenance disponible
         $this->contenanceRestante = $this->contenance;
     }
 
     // méthode permettant de laver le shaker
-    public function laverShaker() {
+    public function laverShaker() : void {
         $this->etat = 0;
     }
 
     // méthode permettant de secouer le shaker afin d'effectuer le cocktail -> booléen
-    public function secouer() {
+    public function secouer() : bool {
         return true;
     }
 }

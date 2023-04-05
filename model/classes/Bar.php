@@ -6,7 +6,7 @@ class Bar {
     private $bouteilles /* Bouteille : tableau */;
 
     public function __construct(
-            $nm, 
+            String $nm, 
             $rct = [/* Recette */] /* vide par défaut */,
             $btls = [/* Bouteille */] /* vide par défaut */
         ) {
@@ -24,13 +24,12 @@ class Bar {
     /* LOGIQUE METIER */
 
     // méthode permettant d'ajouter une bouteille à la liste
-    public function ajouterBouteille($btl) {
+    public function ajouterBouteille(Bouteille $btl) : void {
         array_push($this->bouteilles, ($btl));
     }
 
     // méthode permettant de supprimer une bouteille de la liste
-    // retourne un booléen attestant de l'issue de l'opération
-    public function jeterBouteille($btl) {
+    public function jeterBouteille(Bouteille $btl) : bool {
         // on vérifie que la bouteille demandée existe dans le bar (= la liste)
         if($this->chercherBouteille($btl->getNom())) {
             // le cas échéant, on la supprime
@@ -47,8 +46,7 @@ class Bar {
     }
 
     // méthode permettant de chercher une bouteille selon le nom entré en argument dans le bar
-    // retourne un booléen
-    public function chercherBouteille($nom) {
+    public function chercherBouteille(String $nom) : bool {
         foreach($this->bouteilles as $bouteille) {
             // si on a trouvé une bouteille
             if($bouteille->getNom() == $nom) {
@@ -74,8 +72,8 @@ class Bar {
         return false;
     }
 
-    // méthode permettant de vérifier que le bar propose le cocktail selon le nom entré en argument -> booléen
-    public function verifRecette($nomRecette) {
+    // méthode permettant de vérifier que le bar propose le cocktail selon le nom entré en argument
+    public function verifRecette($nomRecette) : bool {
         // on boucle dans le tableau de recettes
         foreach($this->recettes as $recette) {
             // si une recette du bar a un nom correspondant à $nomRecette
